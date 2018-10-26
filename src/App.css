@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 40s linear;
+  height: 50vmin;
+}
+
+.App-header {
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/0/0e/Willamette_River_Portland_Oregon.jpg);
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
