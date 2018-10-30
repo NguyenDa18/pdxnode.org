@@ -92,7 +92,6 @@ class Navbar extends Component {
                 }}
             >
                 <Toolbar>
-
                     <IconButton
                         aria-label="Menu"
                         color="inherit"
@@ -105,7 +104,6 @@ class Navbar extends Component {
                         open={this.state.drawerOpen}
                         onClose={(value)=> this.toggleDrawer(value)}
                     />
-
                 </Toolbar>
             </AppBar>
         );
