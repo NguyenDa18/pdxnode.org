@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
 
 // SideDrawer
 import { scroller } from 'react-scroll';
@@ -98,7 +99,10 @@ class Navbar extends Component {
                         onClick={()=> this.toggleDrawer(true)}
                     >
                         <MenuIcon/>
-                    </IconButton> 
+                    </IconButton>
+                    <Typography variant="h6">
+                        
+                    </Typography>
 
                     <SideDrawer
                         open={this.state.drawerOpen}

@@ -5,7 +5,8 @@ import './App.css';
 
 // components
 import Navbar from './components/Navbar';
-import Info from './components/info'
+import Info from './components/info';
+import Media from './components/media';
 import Location from './components/locations';
 import Footer from './components/Footer';
 
@@ -33,6 +34,7 @@ class App extends Component {
         </Element>
         
         <Element name="media">
+          <Media />
         </Element>
         
         <Element name="locations">
