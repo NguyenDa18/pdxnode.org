@@ -8,7 +8,15 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+
+import Collapse from '@material-ui/core/Collapse';
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import IconButton from '@material-ui/core/IconButton';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Button from '@material-ui/core/Button';
+import classnames from 'classnames';
 
 class Info extends Component {
 
@@ -21,31 +29,29 @@ class Info extends Component {
             `We're working on reactivating our workshop series to provide some hands-on community learning experiences. Check back soon, or reach out to us to get involved!`
         ],
         linkto:['http://sales/b','http://sales/m','http://sales/s'],
-        delay:[500,0,500]
+        delay:[500,0,500],
+        expand: false
     }
+    
+    handleExpandClick = () => { this.setState({ expanded: !this.state.expanded }) }
 
     showBoxes = () => {
-        const { titles, images, desc, delay } = this.state;
+        const { titles, images, desc, delay, expanded } = this.state;
         return (
             titles.map((box,i)=>(
                 <Zoom delay={delay[i]} key={i}>
-                    <Card maxWidth="200">
-                        <CardActionArea>
-                            <CardMedia component="img" height="140" image={images[i]}/>
-                            <CardContent>
-                                <Typography component="h2">
-                                    {titles[i]}
-                                </Typography>
-                                <Typography component="p">
-                                    {desc[i]}
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                        <CardActions>
-                            <Button variant="outlined" color="primary" size="small">Sign Up</Button>
-                            <Button size="small">Sign Up</Button>
-                        </CardActions>
+                    <Card style={{ maxWidth: `200` }}>
+                        <CardMedia component="img" image={images[i]}/>
+                        <ExpansionPanel>
+                            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                                <Typography>{titles[i]}</Typography>
+                            </ExpansionPanelSummary>
+                            <ExpansionPanelDetails>
+                                <Typography component="p">{desc[i]}</Typography>
+                            </ExpansionPanelDetails>
+                        </ExpansionPanel>
                     </Card>
+                    <br />
                 </Zoom>
             ))
         );
@@ -54,7 +60,7 @@ class Info extends Component {
     render() {
         return (
             <div className="bck_cinnamint">
-                <div>
+                <div class="col s12 m6">
                     <Paper elevation={2}>
                         <Typography component="h1">
                             Welcome, weary traveler! Pull up a cyberchair and I'll tell you a story.
@@ -63,9 +69,13 @@ class Info extends Component {
                             PDXNode is a Node.js usergroup based in Portland, Oregon. We organize two meetups every month: one for talks, one for hacks. We're also working on putting together some workshops!
                         </Typography>
                     </Paper>
-
+                    <br />
+                </div>
+                <div>
                     <div className="pricing_wrapper">
-                        {this.showBoxes()}
+                        <div class="row">
+                            {this.showBoxes()}
+                        </div>
                     </div>
 
                 </div>
