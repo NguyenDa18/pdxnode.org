@@ -18,6 +18,7 @@ import Button from '@material-ui/core/Button';
 import classNames from 'classnames';
 
 import { withStyles } from '@material-ui/core/styles';
+import MeetupInfo from './MeetupInfo';
 
 const styles = theme => ({
     heroUnit: {
@@ -109,6 +110,7 @@ class Info extends Component {
                             PDXNode is a Node.js usergroup based in Portland, Oregon. We organize two meetups every month: one for talks, one for hacks. We're also working on putting together some workshops!
                         </Typography>
                     </Paper>
+                    <MeetupInfo />
                     <br />
                 </div>
                 <div>
